@@ -1,0 +1,30 @@
+[
+  {
+    "department": "IT",
+    "name": "budi",
+    "phone": "0811111",
+    "email": "budi@mail.com",
+    "type": "manager"
+  },
+  {
+    "department": "finance",
+    "name": "rudi",
+    "phone": "0814",
+    "email": "rudi@mail.com",
+    "type": "manager"
+  },
+  {
+    "division": "finance",
+    "name": "toto",
+    "phone": "085123",
+    "email": "toto@mail.com",
+    "type": "staff"
+  },
+  {
+    "division": "IT",
+    "name": "bowo",
+    "phone": "081111111",
+    "email": "bowo@mail.com",
+    "type": "staff"
+  }
+]
