@@ -16,50 +16,45 @@ public class Main {
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             int choice = sc.nextInt();
-            sc.nextLine(); // konsumsi newline
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
                     service.showAll();
                     System.out.println("1. Kembali ke menu utama");
                     System.out.print("Pilih: ");
-                    sc.nextLine(); // tunggu input user
+                    sc.nextLine();
                     break;
+
                 case 2:
-                    System.out.print("Nama   : ");
-                    String nameS = sc.nextLine();
-                    System.out.print("Phone  : ");
-                    String phoneS = sc.nextLine();
-                    System.out.print("Email  : ");
-                    String emailS = sc.nextLine();
-                    System.out.print("Divisi : ");
-                    String div = sc.nextLine();
+                    String nameS = inputNotEmpty(sc, "Nama");
+                    String phoneS = inputNotEmpty(sc, "Phone");
+                    String emailS = inputEmail(sc);
+                    String div = inputNotEmpty(sc, "Divisi");
+
                     service.addEmployee(new Staff(nameS, phoneS, emailS, div));
                     break;
+
                 case 3:
-                    System.out.print("Nama       : ");
-                    String nameM = sc.nextLine();
-                    System.out.print("Phone      : ");
-                    String phoneM = sc.nextLine();
-                    System.out.print("Email      : ");
-                    String emailM = sc.nextLine();
-                    System.out.print("Department : ");
-                    String dept = sc.nextLine();
+                    String nameM = inputNotEmpty(sc, "Nama");
+                    String phoneM = inputNotEmpty(sc, "Phone");
+                    String emailM = inputEmail(sc);
+                    String dept = inputNotEmpty(sc, "Department");
+
                     service.addEmployee(new Manager(nameM, phoneM, emailM, dept));
                     break;
+
                 case 4:
                     service.showAll();
                     System.out.print("Index karyawan yang mau diupdate: ");
                     int idxUpdate = sc.nextInt();
                     sc.nextLine();
-                    System.out.print("Nama baru  : ");
-                    String nameU = sc.nextLine();
-                    System.out.print("Phone baru : ");
-                    String phoneU = sc.nextLine();
-                    System.out.print("Email baru : ");
-                    String emailU = sc.nextLine();
+                    String nameU = inputNotEmpty(sc, "Nama baru");
+                    String phoneU = inputNotEmpty(sc, "Phone baru");
+                    String emailU = inputEmail(sc);
                     service.updateEmployee(idxUpdate, nameU, phoneU, emailU);
                     break;
+
                 case 5:
                     service.showAll();
                     System.out.print("Index karyawan yang mau dihapus: ");
@@ -67,11 +62,42 @@ public class Main {
                     sc.nextLine();
                     service.deleteEmployee(idxDelete);
                     break;
+
                 case 0:
                     System.out.println("Keluar dari program.");
                     return;
+
                 default:
                     System.out.println("Pilihan tidak valid.");
+            }
+        }
+    }
+
+    // validasi
+
+    private static String inputNotEmpty(Scanner sc, String label) {
+        String input;
+        while (true) {
+            System.out.print(label + " : ");
+            input = sc.nextLine();
+            if (!input.trim().isEmpty()) {
+                return input;
+            } else {
+                System.out.println(label + " tidak boleh kosong");
+            }
+        }
+    }
+
+
+    private static String inputEmail(Scanner sc) {
+        String email;
+        while (true) {
+            System.out.print("Email : ");
+            email = sc.nextLine();
+            if (email.contains("@") && email.contains(".")) {
+                return email;
+            } else {
+                System.out.println("format email tidak valid");
             }
         }
     }

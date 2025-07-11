@@ -26,5 +26,19 @@
     "phone": "081111111",
     "email": "bowo@mail.com",
     "type": "staff"
+  },
+  {
+    "division": "production",
+    "name": "jonson",
+    "phone": "08111111",
+    "email": "jonson@mail.co",
+    "type": "staff"
+  },
+  {
+    "department": "production",
+    "name": "joko",
+    "phone": "08912111",
+    "email": "joko@mail.com",
+    "type": "manager"
   }
 ]
